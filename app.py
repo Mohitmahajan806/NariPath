@@ -1,16 +1,20 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import json
 from models import SafetyScoreModel, ItineraryPlanner
 from fintech import BudgetTracker
 from community import CommunitySupport
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Initialize models
 safety_model = SafetyScoreModel()
 itinerary_planner = ItineraryPlanner()
 budget_tracker = BudgetTracker()
 community_support = CommunitySupport()
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/safety_score', methods=['POST'])
 def get_safety_score():
@@ -37,5 +41,5 @@ def community_alert():
     alerts = community_support.get_alerts(data)
     return jsonify(alerts)
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)

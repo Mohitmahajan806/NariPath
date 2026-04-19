@@ -8,7 +8,7 @@ async function checkSafety() {
         body: JSON.stringify({ location })
     });
     const data = await response.json();
-    document.getElementById('safety-score').innerText = Safety Score: ${data.safety_score};
+    document.getElementById('safety-score').innerText = `Safety Score: ${data.safety_score}`;
 }
 
 async function planItinerary() {
@@ -21,7 +21,7 @@ async function planItinerary() {
         body: JSON.stringify({ details })
     });
     const data = await response.json();
-    document.getElementById('itinerary').innerText = Itinerary: ${JSON.stringify(data)};
+    document.getElementById('itinerary').innerText = `Itinerary: ${JSON.stringify(data)}`;
 }
 
 async function trackBudget() {
@@ -34,7 +34,7 @@ async function trackBudget() {
         body: JSON.stringify({ budgetDetails })
     });
     const data = await response.json();
-    document.getElementById('budget').innerText = Budget: ${JSON.stringify(data)};
+    document.getElementById('budget').innerText = `Budget: ${JSON.stringify(data)}`;
 }
 
 async function getAlerts() {
@@ -47,5 +47,5 @@ async function getAlerts() {
         body: JSON.stringify({ locationDetails })
     });
     const data = await response.json();
-    document.getElementById('alerts').innerText = Alerts: ${JSON.stringify(data)};
+    document.getElementById('alerts').innerText = `Alerts: ${JSON.stringify(data)}`;
 }

@@ -52,18 +52,6 @@ export async function fetchHotels(): Promise<Hotel[]> {
   return response.json();
 }
 
-export async function convertCurrency(amount: number, from: string, to: string) {
-  const response = await fetch(`${API_BASE}/convert`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ amount, from, to }),
-  });
-  if (!response.ok) {
-    throw new Error('Currency conversion failed');
-  }
-  return response.json();
-}
-
 export async function fetchCultureNotes(): Promise<CultureNote[]> {
   const response = await fetch(`${API_BASE}/culture`);
   if (!response.ok) {

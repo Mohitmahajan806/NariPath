@@ -14,7 +14,7 @@ export function HotelCard({ hotel }: { hotel: Hotel }) {
       </div>
       <p className="mt-4 text-slate-600">{hotel.highlights}</p>
       <div className="mt-5 flex items-center justify-between text-sm text-slate-500">
-        <span>Rating: {hotel.rating.toFixed(1)}</span>
+        <span>Rating: {hotel.rating > 0 ? hotel.rating.toFixed(1) : 'Not listed'}</span>
         <button className="rounded-full bg-slate-900 px-4 py-2 text-white transition hover:bg-slate-700">
           Book room
         </button>

@@ -1,5 +1,5 @@
-import { FeatureCard } from '@/components/FeatureCard';
-import { FEATURE_CARDS } from '@/lib/features';
+import { FeatureCard } from "@/components/FeatureCard";
+import { FEATURE_CARDS } from "@/lib/features";
 
 export default function HomePage() {
   return (
@@ -9,10 +9,13 @@ export default function HomePage() {
           Safety, culture, and travel intelligence
         </p>
         <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-          AI-powered travel planning for safe, sustainable journeys.
+          Hey explorer! Welcome to Solosphere-where solo travel meets safety,
+          support, and total freedom.
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-          Choose a tool below to open restaurants, stays, currency help, translation, culture tips, itineraries, and map planning—each on its own page.
+          Choose a tool below to open restaurants, stays, currency help,
+          translation, culture tips, itineraries, and map planning—each on its
+          own page.
         </p>
       </section>
 

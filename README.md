@@ -1,4 +1,4 @@
-# Nari Path
+# Solosphere
 AI-powered travel assistant for women focusing on safety, sustainability, and financial security.
 
 ## Overview
@@ -49,7 +49,7 @@ This repository is split into two folders for clarity:
 
 ## Project Structure
 
-Nari Path/
+Solosphere/
 ├── backend/
 │   ├── app.py
 │   ├── community.py

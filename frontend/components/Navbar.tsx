@@ -1,26 +1,37 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const mainNav = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/profile', label: 'Profile' },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/profile", label: "Profile" },
 ] as const;
 
-function NavLink({ href, label, onNavigate }: { href: string; label: string; onNavigate?: () => void }) {
+function NavLink({
+  href,
+  label,
+  onNavigate,
+}: {
+  href: string;
+  label: string;
+  onNavigate?: () => void;
+}) {
   const pathname = usePathname();
-  const active = pathname === href || (href !== '/' && pathname.startsWith(href));
+  const active =
+    pathname === href || (href !== "/" && pathname.startsWith(href));
 
   return (
     <Link
       href={href}
       onClick={onNavigate}
       className={`rounded-full px-4 py-2 text-sm font-medium transition ${
-        active ? 'bg-slate-900 text-white shadow-md shadow-slate-900/15' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+        active
+          ? "bg-slate-900 text-white shadow-md shadow-slate-900/15"
+          : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
       }`}
     >
       {label}
@@ -38,12 +49,22 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 shadow-sm backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" className="group flex shrink-0 items-center gap-3" onClick={closeMenu}>
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-sm font-bold text-white shadow-lg shadow-sky-600/25 transition group-hover:scale-[1.02]">
-            NP
+        <Link
+          href="/"
+          className="group flex shrink-0 items-center gap-3"
+          onClick={closeMenu}
+        >
+          <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border border-white/20 shadow-lg shadow-sky-900/40">
+            <img
+              src="/Solosphere.jpeg"
+              alt="Logo"
+              className="h-full w-full object-cover"
+            />
           </span>
           <div className="leading-tight">
-            <span className="block text-lg font-semibold tracking-tight text-slate-900">Nari Path</span>
+            <span className="block text-lg font-semibold tracking-tight text-slate-900">
+              Solosphere
+            </span>
             <span className="hidden text-[11px] font-medium uppercase tracking-[0.18em] text-slate-400 sm:block">
               Travel with clarity
             </span>
@@ -74,7 +95,7 @@ export function Navbar() {
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-800 shadow-sm"
             aria-expanded={menuOpen}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((o) => !o)}
           >
             {menuOpen ? (
@@ -94,7 +115,12 @@ export function Navbar() {
         <div className="border-t border-slate-100 bg-white px-4 py-4 shadow-inner md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1">
             {mainNav.map((item) => (
-              <NavLink key={item.href} href={item.href} label={item.label} onNavigate={closeMenu} />
+              <NavLink
+                key={item.href}
+                href={item.href}
+                label={item.label}
+                onNavigate={closeMenu}
+              />
             ))}
             <Link
               href="/itinerary"
